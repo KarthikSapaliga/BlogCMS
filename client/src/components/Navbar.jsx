@@ -1,5 +1,6 @@
 import { useState } from "react";
-import Image from "./Image";
+import { Link } from "react-router-dom";
+import Image from "@/components/Image";
 
 const navSections = [
     { name: "Home", route: "/home" },
@@ -12,12 +13,12 @@ function Navbar() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     return (
         <div className="w-full h-16 md:h-20 flex items-center justify-between">
-            {/* LOGO  */}
-            <div className="flex items-center gap-3 text-2xl font-bold text-dark3">
+
+            <Link to="/" className="flex items-center gap-3 text-2xl font-bold text-dark3">
                 <Image src="/logo.png" alt="Logo" width={28} height={28} />
                 <h1>KBlog</h1>
-            </div>
-            {/* HAMBURGER MENU */}
+            </Link>
+
             <div className="md:hidden">
                 <div
                     onClick={() => setSidebarOpen((prev) => !prev)}
@@ -31,13 +32,13 @@ function Navbar() {
                 >
                     {navSections.map((link) => {
                         return (
-                            <a
+                            <Link
                                 key={link.name}
-                                href={link.route}
+                                to={link.route}
                                 className="min-w-32 text-center hover:bg-light3 px-4 py-2 rounded-full text-dark2 hover:text-dark3"
                             >
                                 {link.name}
-                            </a>
+                            </Link>
                         );
                     })}
 
@@ -54,9 +55,9 @@ function Navbar() {
             <div className="hidden md:flex items-center gap-8 xl:gap-12 font-medium">
                 {navSections.map((link) => {
                     return (
-                        <a key={link.name} href={link.route} className="text-dark2 hover:text-dark3">
+                        <Link key={link.name} to={link.route} className="text-dark2 hover:text-dark3">
                             {link.name}
-                        </a>
+                        </Link>
                     );
                 })}
                 <a
