@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
+
 import Image from "@/components/Image";
 
 const navSections = [
@@ -42,12 +44,17 @@ function Navbar() {
                         );
                     })}
 
-                    <a
-                        href="/login"
-                        className="min-w-32 px-4 py-2 rounded-3xl bg-primary text-white text-center mb-16"
-                    >
-                        Login
-                    </a>
+                    <SignedOut>
+                        <Link
+                            to="/login"
+                            className="min-w-32 px-4 py-2 rounded-3xl bg-primary text-white text-center mb-16"
+                        >
+                            Login
+                        </Link>
+                    </SignedOut>
+                    <SignedIn>
+                        <UserButton />
+                    </SignedIn>
                 </nav>
             </div>
 
@@ -60,12 +67,17 @@ function Navbar() {
                         </Link>
                     );
                 })}
-                <a
-                    href="/login"
-                    className="px-4 py-2 rounded-3xl bg-primary text-white"
-                >
-                    Login
-                </a>
+                <SignedOut>
+                    <Link
+                        to="/login"
+                        className="min-w-32 px-4 py-2 rounded-3xl bg-primary text-white text-center mb-16"
+                    >
+                        Login
+                    </Link>
+                </SignedOut>
+                <SignedIn>
+                    <UserButton />
+                </SignedIn>
             </div>
         </div>
     );
