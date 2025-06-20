@@ -13,11 +13,10 @@ function Navbar() {
     return (
         <div className="w-full h-16 md:h-20 flex items-center justify-between">
             {/* LOGO  */}
-            <div className="flex items-center gap-4 text-2xl font-bold text-dark3">
-                <Image src="/logo.png" alt="Logo" className="w-8 h-8" />
+            <div className="flex items-center gap-3 text-2xl font-bold text-dark3">
+                <Image src="/logo.png" alt="Logo" width={28} height={28} />
                 <h1>KBlog</h1>
             </div>
-
             {/* HAMBURGER MENU */}
             <div className="md:hidden">
                 <div
@@ -27,9 +26,8 @@ function Navbar() {
                     {sidebarOpen ? "X" : "☰"}
                 </div>
                 <nav
-                    className={`w-full h-screen bg-light2 flex flex-col absolute justify-center items-center top-16 ${
-                        sidebarOpen ? "left-0" : "left-[100%]"
-                    } transition-all ease-in-out gap-2 font-medium text-lg`}
+                    className={`w-full h-screen bg-light2 flex flex-col absolute justify-center items-center top-16 ${sidebarOpen ? "left-0" : "left-[100%]"
+                        } transition-all ease-in-out gap-2 font-medium text-lg`}
                 >
                     {navSections.map((link) => {
                         return (
