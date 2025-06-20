@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Image from "./Image";
 
 const navSections = [
     { name: "Home", route: "/home" },
@@ -13,7 +14,7 @@ function Navbar() {
         <div className="w-full h-16 md:h-20 flex items-center justify-between">
             {/* LOGO  */}
             <div className="flex items-center gap-4 text-2xl font-bold text-dark3">
-                <img src="/logo.png" alt="Logo" className="w-8 h-8" />
+                <Image src="/logo.png" alt="Logo" className="w-8 h-8" />
                 <h1>KBlog</h1>
             </div>
 
@@ -33,8 +34,9 @@ function Navbar() {
                     {navSections.map((link) => {
                         return (
                             <a
+                                key={link.name}
                                 href={link.route}
-                                className="min-w-32 text-center hover:bg-light3 px-4 py-2 rounded-full text-dark2"
+                                className="min-w-32 text-center hover:bg-light3 px-4 py-2 rounded-full text-dark2 hover:text-dark3"
                             >
                                 {link.name}
                             </a>
@@ -53,7 +55,11 @@ function Navbar() {
             {/* NAV ITEMS */}
             <div className="hidden md:flex items-center gap-8 xl:gap-12 font-medium">
                 {navSections.map((link) => {
-                    return <a href={link.route}>{link.name}</a>;
+                    return (
+                        <a key={link.name} href={link.route} className="text-dark2 hover:text-dark3">
+                            {link.name}
+                        </a>
+                    );
                 })}
                 <a
                     href="/login"
