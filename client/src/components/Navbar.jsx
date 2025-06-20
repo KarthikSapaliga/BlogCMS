@@ -70,7 +70,7 @@ function Navbar() {
                 <SignedOut>
                     <Link
                         to="/login"
-                        className="min-w-32 px-4 py-2 rounded-3xl bg-primary text-white text-center mb-16"
+                        className="min-w-32 px-4 py-2 rounded-3xl bg-primary text-white text-center"
                     >
                         Login
                     </Link>
