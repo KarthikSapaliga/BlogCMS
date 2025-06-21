@@ -10,6 +10,12 @@ function Image({ src, alt = "", width, height, classname = "" }) {
             alt={alt}
             width={width}
             height={height}
+            transformation={[
+                {
+                    width: width,
+                    height: height
+                }
+            ]}
             className={classname}
         />
     );
