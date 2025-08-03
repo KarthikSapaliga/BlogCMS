@@ -1,6 +1,6 @@
 import { IKImage } from "imagekitio-react";
 
-function Image({ src, alt = "", width, height, classname = "" }) {
+function Image({ src, alt = "", width, height, className = "" }) {
     return (
         <IKImage
             urlEndpoint={import.meta.env.VITE_IMAGEKIT_URL_ENDPOINT}
@@ -16,7 +16,7 @@ function Image({ src, alt = "", width, height, classname = "" }) {
                     height: height
                 }
             ]}
-            className={classname}
+            className={className}
         />
     );
 }
